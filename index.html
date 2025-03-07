@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria Best Calzone - La auténtica pizza italiana en Bilbao</title>
+    <meta name="description" content="Disfruta de las mejores pizzas y calzones italianos en el Casco Viejo de Bilbao. Pedidos para llevar y servicio en local.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-white transition-colors">Pizzeria Best Calzone</a>
+                <nav class="hidden md:flex items-center space-x-1">
+                    <a href="#hero" class="text-white hover:text-white/80 px-3 py-2 text-sm font-medium">Inicio</a>
+                    <a href="#menu" class="text-white hover:text-white/80 px-3 py-2 text-sm font-medium">Menú</a>
+                    <a href="#testimonials" class="text-white hover:text-white/80 px-3 py-2 text-sm font-medium">Testimonios</a>
+                    <a href="#location" class="text-white hover:text-white/80 px-3 py-2 text-sm font-medium">Ubicación</a>
+                    <a href="#order" class="text-white hover:text-white/80 px-3 py-2 text-sm font-medium">Pedidos</a>
+                    <button class="bg-white text-orange-600 hover:bg-white/90 px-4 py-2 rounded-md text-sm font-medium ml-2" onclick="scrollToSection('order')">Pedir Ahora</button>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-90 z-50 hidden">
+        <div class="flex flex-col items-center justify-center h-full">
+            <a href="#hero" class="text-white hover:text-orange-500 py-2 text-lg font-medium">Inicio</a>
+            <a href="#menu" class="text-white hover:text-orange-500 py-2 text-lg font-medium">Menú</a>
+            <a href="#testimonials" class="text-white hover:text-orange-500 py-2 text-lg font-medium">Testimonios</a>
+            <a href="#location" class="text-white hover:text-orange-500 py-2 text-lg font-medium">Ubicación</a>
+            <a href="#order" class="text-white hover:text-orange-500 py-2 text-lg font-medium">Pedidos</a>
+            <button class="bg-orange-600 text-white hover:bg-orange-700 px-6 py-3 rounded-md text-lg font-medium mt-4" onclick="scrollToSection('order')">Pedir Ahora</button>
+        </div>
+        <button id="close-mobile-menu" class="absolute top-4 right-4 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <main>
+        <section id="hero" class="relative h-screen min-h-[600px] w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); filter: brightness(0.5);"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,103,0,0.1)_0%,_transparent_70%)]"></div>
+            <div class="container relative z-10 mx-auto flex h-full flex-col items-center justify-center px-4 text-center text-white">
+                <div class="animate-fade-in-up">
+                    <span class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-orange-600 rounded-full">La mejor pizza de Bilbao</span>
+                    <h1 class="mb-2 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+                        Pizzeria <span class="text-orange-500">Best Calzone</span>
+                    </h1>
+                    <p class="mb-8 text-xl font-medium italic sm:text-2xl max-w-2xl mx-auto">
+                        La auténtica pizza italiana en Bilbao, elaborada con ingredientes frescos y recetas tradicionales
+                    </p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 justify-center">
+                        <button class="bg-orange-600 hover:bg-orange-700 text-white text-lg px-8 py-3 rounded-md" onclick="scrollToSection('menu')">Ver Menú</button>
+                    </div>
+                </div>
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <button class="text-white hover:text-white hover:bg-white/10 rounded-full p-2" onclick="scrollToSection('menu')">
+                        <i class="fas fa-chevron-down text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-100 to-transparent"></div>
+            <div class="absolute -left-16 top-40 w-32 h-32 rounded-full bg-orange-100 opacity-70"></div>
+            <div class="absolute right-0 bottom-20 w-64 h-64 rounded-full bg-orange-50 opacity-50"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-orange-600 bg-orange-100 rounded-full mb-3">Nuestras Especialidades</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Nuestro Menú</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Disfruta de nuestras deliciosas pizzas y calzones, elaborados con ingredientes frescos y de la mejor calidad.
+                    </p>
+                </div>
+                <div class="mx-auto max-w-5xl">
+                    <div class="mb-10 bg-orange-50 p-1 rounded-lg inline-flex">
+                        <button class="px-8 py-3 text-lg rounded-md bg-orange-600 text-white" onclick="showTab('pizzas')">Pizzas</button>
+                        <button class="px-8 py-3 text-lg rounded-md text-gray-700" onclick="showTab('calzones')">Calzones</button>
+                    </div>
+                    <div id="pizzas-tab" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <!-- Pizzas will be dynamically inserted here -->
+                    </div>
+                    <div id="calzones-tab" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 hidden">
+                        <!-- Calzones will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 bg-gray-50 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"></div>
+            <div class="absolute -right-10 top-40 w-20 h-20 rounded-full bg-red-100 opacity-50"></div>
+            <div class="absolute -left-20 bottom-40 w-40 h-40 rounded-full bg-red-50 opacity-70"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-red-600 bg-red-100 rounded-full mb-3">Testimonios</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Lo que dicen nuestros clientes</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Descubre por qué nuestros clientes nos eligen y vuelven una y otra vez a disfrutar de nuestras pizzas y calzones.
+                    </p>
+                </div>
+                <div id="testimonials-container" class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+                    <!-- Testimonials will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="py-20 bg-gray-50 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"></div>
+            <div class="absolute -right-20 top-20 w-40 h-40 rounded-full bg-orange-100 opacity-50"></div>
+            <div class="absolute -left-10 bottom-10 w-20 h-20 rounded-full bg-orange-200 opacity-30"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-orange-600 bg-orange-100 rounded-full mb-3">Visítanos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Dónde Encontrarnos</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Estamos ubicados en el corazón del Casco Viejo de Bilbao, en un ambiente acogedor donde podrás disfrutar de la mejor pizza italiana.
+                    </p>
+                </div>
+                <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-5 items-stretch">
+                    <div class="md:col-span-3 overflow-hidden shadow-lg rounded-lg">
+                        <div class="h-[500px] relative">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.3394780993!2d-2.9252!3d43.2568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fd609b7a6f9%3A0x5bf2a8f7d3dd97a8!2sCalle%20Correos%2C%20Bilbao%2C%20Vizcaya!5e0!3m2!1sen!2ses!4v1646579834784!5m2!1sen!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 bg-white shadow-lg rounded-lg p-8">
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mr-4 h-6 w-6 text-orange-600 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Dirección</h3>
+                                    <p class="text-gray-600">Calle Correos, Casco Viejo, 48005 Bilbao, Vizcaya</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock mr-4 h-6 w-6 text-orange-600 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Horario</h3>
+                                    <p class="text-gray-600">Lunes a Jueves: 13:00 - 23:00</p>
+                                    <p class="text-gray-600">Viernes a Domingo: 13:00 - 00:00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone mr-4 h-6 w-6 text-orange-600 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Teléfono</h3>
+                                    <p class="text-gray-600">+34 602037519</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mr-4 h-6 w-6 text-orange-600 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Email</h3>
+                                    <p class="text-gray-600">bestcalzone@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col space-y-3 pt-6 sm:flex-row sm:space-x-3 sm:space-y-0">
+                            <a href="tel:+34602037519" class="bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md text-center">
+                                <i class="fas fa-phone mr-2"></i>Llamar Ahora
+                            </a>
+                            <a href="https://maps.google.com/?q=Calle+Correos,+Casco+Viejo,+48005+Bilbao,+Vizcaya" target="_blank" class="border border-orange-600 text-orange-600 hover:bg-orange-50 py-2 px-4 rounded-md text-center">
+                                <i class="fas fa-directions mr-2"></i>Cómo Llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-50 to-transparent"></div>
+            <div class="absolute -left-20 top-40 w-40 h-40 rounded-full bg-orange-50 opacity-70"></div>
+            <div class="absolute right-10 bottom-20 w-20 h-20 rounded-full bg-orange-100 opacity-50"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-orange-600 bg-orange-100 rounded-full mb-3">Pedidos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Haz tu Pedido</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Realiza tu pedido para llevar y disfruta de nuestras deliciosas pizzas y calzones en la comodidad de tu hogar.
+                    </p>
+                </div>
+                <div class="mx-auto max-w-2xl">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="bg-gradient-to-r from-orange-600 to-orange-500 p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-1">Pedido para llevar</h3>
+                            <p class="text-white/90">
+                                Rellena el formulario para hacer tu pedido o llama directamente al
+                                <a href="tel:+34602037519" class="font-medium text-white underline hover:text-white/90">+34 602037519</a>
+                            </p>
+                        </div>
+                        <form id="order-form" class="p-6 pt-8 space-y-6">
+                            <div class="grid gap-6 sm:grid-cols-2">
+                                <div class="space-y-2">
+                                    <label for="name" class="text-sm font-medium">Nombre</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Tu nombre">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="phone" class="text-sm font-medium">Teléfono</label>
+                                    <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Tu número de teléfono">
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-sm font-medium">Hora de recogida</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="flex items-center justify-between rounded-md border border-gray-200 p-3 cursor-pointer hover:border-orange-500">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="pickupTime" value="asap" checked class="text-orange-600 focus:ring-orange-500">
+                                            <span>Lo antes posible (10-15 min)</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center justify-between rounded-md border border-gray-200 p-3 cursor-pointer hover:border-orange-500">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="pickupTime" value="30min" class="text-orange-600 focus:ring-orange-500">
+                                            <span>En 30 minutos</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center justify-between rounded-md border border-gray-200 p-3 cursor-pointer hover:border-orange-500">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="pickupTime" value="1hour" class="text-orange-600 focus:ring-orange-500">
+                                            <span>En 1 hora</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center justify-between rounded-md border border-gray-200 p-3 cursor-pointer hover:border-orange-500">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="pickupTime" value="tonight" class="text-orange-600 focus:ring-orange-500">
+                                            <span>Esta noche</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="orderDetails" class="text-sm font-medium">Detalles del pedido</label>
+                                <textarea id="orderDetails" name="orderDetails" rows="5" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none" placeholder="Escribe aquí tu pedido (pizzas, calzones, cantidad, etc.)"></textarea>
+                            </div>
+                            <div class="flex flex-col space-y-3 sm:flex-row sm:space-x-3 sm:space-y-0 pt-2">
+                                <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md flex-1 flex items-center justify-center">
+                                    <i class="fas fa-paper-plane mr-2"></i>Enviar Pedido
+                                </button>
+                                <a href="tel:+34602037519" class="border border-orange-600 text-orange-600 hover:bg-orange-50 py-2 px-4 rounded-md flex items-center justify-center">
+                                    <i class="fas fa-phone mr-2"></i>Llamar para pedir
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Pizzeria Best Calzone</h3>
+                    <p class="text-gray-300 mb-4">
+                        Disfruta de la auténtica pizza italiana en el corazón de Bilbao. Elaboramos nuestras pizzas y calzones con ingredientes frescos y de calidad.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-gray-300">Calle Correos, Casco Viejo, 48005 Bilbao, Vizcaya</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 h-5 w-5 text-orange-500 flex-shrink-0"></i>
+                            <a href="tel:+34602037519" class="text-gray-300 hover:text-white transition-colors">+34 602037519</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 h-5 w-5 text-orange-500 flex-shrink-0"></i>
+                            <a href="mailto:bestcalzone@gmail.com" class="text-gray-300 hover:text-white transition-colors">bestcalzone@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mr-2 h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
+                            <div class="text-gray-300">
+                                <p>Lunes a Jueves: 13:00 - 23:00</p>
+                                <p>Viernes a Domingo: 13:00 - 00:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© <span id="current-year"></span> Pizzeria Best Calzone. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="floating-order-button" class="fixed bottom-4 right-4 z-50 bg-orange-600 hover:bg-orange-700 text-white shadow-lg rounded-full p-4">
+        <i class="fas fa-phone mr-2"></i>Pedir Ahora
+    </button>
+
+    <script>
+        // Menu data
+        const pizzas = [
+            { id: 1, name: "Margarita", ingredients: "Tomate, mozzarella, albahaca fresca", price: 8.00, vegetarian: true },
+            { id: 2, name: "York", ingredients: "Tomate, mozzarella, jamón york", price: 8.50 },
+            { id: 3, name: "Roma", ingredients: "Tomate, mozzarella, champiñones, bacon", price: 9.00, popular: true },
+            { id: 4, name: "Cuatro Estaciones", ingredients: "Tomate, mozzarella, jamón, champiñones, alcachofas, aceitunas", price: 9.50 },
+            { id: 5, name: "Tartufo", ingredients: "Crema de trufa, mozzarella, champiñones", price: 9.50, vegetarian: true },
+            { id: 6, name: "Renko", ingredients: "Tomate, mozzarella, carne picada, cebolla", price: 9.50, spicy: true }
+        ];
+
+        const calzones = [
+            { id: 1, name: "Jamón Champies", ingredients: "Tomate, mozzarella, jamón york, champiñones", price: 8.00 },
+            { id: 2, name: "BBQ", ingredients: "Salsa BBQ, mozzarella, pollo, bacon", price: 8.00, popular: true },
+            { id: 3, name: "Carbonara", ingredients: "Nata, mozzarella, bacon, cebolla", price: 8.00 },
+            { id: 4, name: "Auzolan", ingredients: "Tomate, mozzarella, carne picada, cebolla, pimiento", price: 8.00, spicy: true },
+            { id: 5, name: "Palmaforte", ingredients: "Tomate, mozzarella, jamón york, piña", price: 8.00 },
+            { id: 6, name: "Empuzano", ingredients: "Tomate, mozzarella, atún, cebolla", price: 8.00 }
+        ];
+
+        // Testimonials data
+        const testimonials = [
+            { id: 1, name: "María García", role: "Cliente habitual", content: "Las mejores pizzas de Bilbao sin duda. La masa es perfecta y los ingredientes siempre frescos. El servicio es excelente y el ambiente muy acogedor.", rating: 5 },
+            { id: 2, name: "Javier López", role: "Foodie", content: "He probado muchas pizzerías en Bilbao, pero esta es especial. El calzone BBQ es increíble, y el personal siempre es amable y atento.", rating: 5 },
+            { id: 3, name: "Ana Martínez", role: "Turista", content: "Descubrimos este lugar por casualidad durante nuestra visita a Bilbao y fue una grata sorpresa. La pizza Serranovi es deliciosa.", rating: 4 },
+            { id: 4, name: "Carlos Rodríguez", role: "Vecino del Casco Viejo", content: "Mi pizzería favorita en el barrio. Pido casi todas las semanas y nunca me ha decepcionado. Recomiendo la pizza Roma.", rating: 5 }
+        ];
+
+        // Function to create menu item card
+        function createMenuItemCard(item) {
+            return `
+                <div class="overflow-hidden transition-all hover:shadow-lg border-none bg-white shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-lg">${item.name}</h3>
+                            <div class="flex gap-1">
+                                ${item.vegetarian ? '<span class="bg-green-50 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded">Veggie</span>' : ''}
+                                ${item.spicy ? '<span class="bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded">Picante</span>' : ''}
+                                ${item.popular ? '<span class="bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded">Popular</span>' : ''}
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">${item.ingredients}</p>
+                        <div class="text-orange-600 font-bold text-lg">${item.price.toFixed(2)}€</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to create testimonial card
+        function createTestimonialCard(testimonial) {
+            return `
+                <div class="bg-white shadow-md hover:shadow-lg transition-shadow rounded-lg">
+                    <div class="p-6">
+                        <div class="flex items-center space-x-1 mb-4">
+                            ${Array(5).fill().map((_, i) => `
+                                <i class="fas fa-star ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-200'}"></i>
+                            `).join('')}
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">"${testimonial.content}"</p>
+                        <div class="flex items-center">
+                            <div class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+                                <span class="text-xl font-semibold text-gray-600">${testimonial.name[0]}</span>
+                            </div>
+                            <div>
+                                <p class="font-medium">${testimonial.name}</p>
+                                <p class="text-sm text-gray-500">${testimonial.role}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to show menu tab
+        function showTab(tabName) {
+            const pizzasTab = document.getElementById('pizzas-tab');
+            const calzonesTab = document.getElementById('calzones-tab');
+            const pizzasButton = document.querySelector('button[onclick="showTab(\'pizzas\')"]');
+            const calzonesButton = document.querySelector('button[onclick="showTab(\'calzones\')"]');
+
+            if (tabName === 'pizzas') {
+                pizzasTab.classList.remove('hidden');
+                calzonesTab.classList.add('hidden');
+                pizzasButton.classList.add('bg-orange-600', 'text-white');
+                pizzasButton.classList.remove('text-gray-700');
+                calzonesButton.classList.remove('bg-orange-600', 'text-white');
+                calzonesButton.classList.add('text-gray-700');
+            } else {
+                calzonesTab.classList.remove('hidden');
+                pizzasTab.classList.add('hidden');
+                calzonesButton.classList.add('bg-orange-600', 'text-white');
+                calzonesButton.classList.remove('text-gray-700');
+                pizzasButton.classList.remove('bg-orange-600', 'text-white');
+                pizzasButton.classList.add('text-gray-700');
+            }
+        }
+
+        // Function to scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Document ready function
+        $(document).ready(function() {
+            // Populate menu
+            const pizzasTab = document.getElementById('pizzas-tab');
+            const calzonesTab = document.getElementById('calzones-tab');
+
+            pizzas.forEach(pizza => {
+                pizzasTab.innerHTML += createMenuItemCard(pizza);
+            });
+
+            calzones.forEach(calzone => {
+                calzonesTab.innerHTML += createMenuItemCard(calzone);
+            });
+
+            // Populate testimonials
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            testimonials.forEach(testimonial => {
+                testimonialsContainer.innerHTML += createTestimonialCard(testimonial);
+            });
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile menu functionality
+            $('#mobile-menu-button').click(function() {
+                $('#mobile-menu').removeClass('hidden');
+            });
+
+            $('#close-mobile-menu').click(function() {
+                $('#mobile-menu').addClass('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            $('#mobile-menu a').click(function() {
+                $('#mobile-menu').addClass('hidden');
+            });
+
+            // Header scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('#header').removeClass('bg-transparent py-4').addClass('bg-white/95 backdrop-blur-sm shadow-md py-2');
+                    $('#header a').removeClass('text-white').addClass('text-gray-700');
+                    $('#header button').removeClass('bg-white text-orange-600').addClass('bg-orange-600 text-white');
+                } else {
+                    $('#header').removeClass('bg-white/95 backdrop-blur-sm shadow-md py-2').addClass('bg-transparent py-4');
+                    $('#header a').removeClass('text-gray-700').addClass('text-white');
+                    $('#header button').removeClass('bg-orange-600 text-white').addClass('bg-white text-orange-600');
+                }
+            });
+
+            // Floating order button functionality
+            $('#floating-order-button').click(function() {
+                window.location.href = 'tel:+34602037519';
+            });
+
+            // Form submission
+            $('#order-form').submit(function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                let emailBody = "Nuevo pedido para llevar:\n\n";
+                emailBody += `Nombre: ${formData.get('name')}\n`;
+                emailBody += `Teléfono: ${formData.get('phone')}\n`;
+                emailBody += `Hora de recogida: ${formData.get('pickupTime')}\n\n`;
+                emailBody += `Detalles del pedido:\n${formData.get('orderDetails')}`;
+
+                window.location.href = `mailto:pedidos@pizzeria.com?subject=Pedido para llevar - ${formData.get('name')}&body=${encodeURIComponent(emailBody)}`;
+
+                alert('¡Pedido enviado con éxito! Te llamaremos para confirmarlo en breve.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
